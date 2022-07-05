@@ -42,7 +42,7 @@ function agregarAlCarrito(id) {
   div3.classList = "espacio_alerta";
   div3.append(div6);
   cuerpo.prepend(div3);
-  setTimeout(cerrar, 1500);
+  setTimeout(cerrar, 3000);
 
   totalPrecio = 0;
   div8.innerHTML = "";

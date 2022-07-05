@@ -252,6 +252,170 @@ header {
 .cuerpo__imagen img {
   width: 100%; }
 
+/* ----- Inicio de pagina de compra ------- */
+
+.cuerpo__cuerpoFlex2 {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  margin-top: 20px;
+  border: grey solid 1px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 10px 10px 40px grey;
+}
+
+.cuerpo__cuerpoFlex3 {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 10%;
+  margin-top: 20px;
+  border: grey solid 1px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 10px 10px 40px grey;
+}
+
+
+  .cuerpo_cajasProductos2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
+
+.lista_compra{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.lista_compra h1{
+  font-size: 18px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.formularioConTarjeta{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+}
+
+
+.formularioConTarjeta input, select {
+  width: 90%;
+  padding: 10px 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: NONE;
+  font-size: 18px;
+}
+
+
+.formularioConTarjeta button{
+  width: 200px;
+  height: 50px;
+  margin-top: 20px;
+  padding: 2px;
+  margin-bottom: 20px;
+}
+
+.formularioConTarjeta h1{
+  margin-top: 20px;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.formularioConTarjeta form{
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta{
+  width: 80%;
+  height: 300px;
+  background-color: rgb(159, 143, 84);
+  margin-left: 5%;
+  margin-top: 20px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  padding: 4%;
+}
+
+
+.tarjeta input {
+  width: 80%;
+  padding: 5px 5px;
+  margin: 5px 0;
+  display: inline-block;
+  border: 0px solid #ccc;
+  border-bottom: 1px solid white;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: transparent;
+  font-size: 18px;
+  outline: none;
+}
+
+.nombre_tarjeta{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.nombre_tarjeta img{
+  width: 70px;
+  height: 70px;
+  margin-bottom: 5px;
+}
+
+.expiracion_tarjeta{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 110px;
+}
+
+
+.agradecimientos{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.agradecimientos h1{
+ margin-bottom: 30px;
+}
+
+.agradecimientos h1 strong{
+color:#C4B365;
+}
+
+.agradecimientos h2{
+  font-size: 20px;
+  color: rgb(74, 69, 67);
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.agradecimientos h2 strong{
+  color:#C4B365;
+}
+
+/* ----- fib de pagina de compra ------- */
+
 .cuerpo__cuerpoFlex {
   width: 80%;
   display: flex;
@@ -452,6 +616,7 @@ button:hover {
   border-radius: 5px;
   width: 80px;
   padding: 3px;
+  outline: none;
 }
 
 
