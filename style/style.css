@@ -883,10 +883,21 @@ footer {
 /* --------------- COMIENZO MEDIA 1  ----------------------*/
 @media screen and (max-width: 480px) {
   body {
-    grid-auto-rows: 179px auto 250px; }
+    grid-auto-rows:  auto 250px; }
   /* --------------- HEADER media -----------------*/
   header {
     flex-direction: column; }
+    .header_carrito{
+      width: 23%;
+    }
+    .fondo-numero{
+      width: 30px;
+      height: 30px;
+      background-color: #C4B365;;
+      margin-top: 60px;
+      border-radius: 50%;
+    }
+
   .header__logo {
     width: 100%;
     margin-bottom: 20px; }
@@ -894,7 +905,9 @@ footer {
     width: 100%;
     background-color: #EBEAEA;
     text-align: center;
-    border-top: 3px #C4B365 solid; }
+    border-top: 3px #C4B365 solid;
+    border-bottom: 2px #C4B365 solid;
+  }
   .header__nav ul {
     list-style-type: none;
     margin-left: 0px;
@@ -915,8 +928,90 @@ footer {
     color: #DCBD31; }
   /* --------------- fin HEADER media-----------------*/
   /* --------------- body media -----------------*/
+  /*      MENU Slider      */
+  .menu_slider{
+    width: 70%;
+  }
+  /*    Fin componentes SLIDER     */
+
+  /*      Componentes ALERTA       */
+
+  .espacio_alerta{
+    width: 70%;
+  }
+  .alerta_compra h1{
+    font-size: 15px;
+  }
+  .alerta_compra h3{
+    font-size: 14px;
+  }
+/*     FIN Componentes ALERTA    */
+
+/* ----- Inicio de pagina de compra ------- */
+.cuerpo__cuerpoFlex2 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 0%;
+  margin-top: 10px;
+  border: grey solid 1px;
+  border-radius: 0px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 10px 10px 40px grey;
+}
+
+.cuerpo__cuerpoFlex3 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 0%;
+  margin-top: 20px;
+  border: grey solid 1px;
+  border-radius: 0px;
+  padding: 0px;
+  background-color: white;
+  box-shadow: 10px 10px 40px grey;
+}
+
+.cuerpo_cajasProductos2 {
+  width: 93%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; }
+
+  .lista_compra{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lista_compra h1{
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
+  .formularioConTarjeta{
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0%;
+  }
+
+  .giro {
+
+    margin-left: 30%;
+  }
+
+/* ----- fib de pagina de compra ------- */
+
   .cuerpo {
-    width: 100%; }
+    width: 100%;
+  margin-top: 184px;}
   .cuerpo__imagen {
     display: NONE; }
   .cuerpo__imagen img {
@@ -981,6 +1076,11 @@ footer {
 .cuerpo_cajaMenu{
   display: none;
 }
+
+.cuerpo__cuerpoFlex--tituloLinea {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 20px; }
 
 #vinos{
   display: none;
@@ -1054,6 +1154,25 @@ footer {
     color: #DCBD31; }
   /* --------------- fin HEADER media-----------------*/
   /* --------------- body media -----------------*/
+
+  /*      MENU Slider      */
+  .menu_slider{
+    width: 60%;
+  }
+  /*    Fin componentes SLIDER     */
+
+  /*      Componentes ALERTA       */
+
+  .espacio_alerta{
+    width: 40%;
+  }
+  .alerta_compra h1{
+    font-size: 15px;
+  }
+  .alerta_compra h3{
+    font-size: 14px;
+  }
+/*     FIN Componentes ALERTA    */
   .cuerpo {
     width: 100%;
   margin-top: 200px;
