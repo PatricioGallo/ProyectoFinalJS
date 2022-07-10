@@ -8,6 +8,8 @@ let filtrosVino = 0;
 let vinosFiltradosPorPrecio2 = [];
 let bmini = 0,
   bmax = 0;
+let nombre,mail,cuota;
+
 //-----------   Funciones  -------------------
 
 
@@ -26,11 +28,12 @@ function agregarAlCarrito(id) {
   `
   div2.classList = "header_carrito";
   div2.setAttribute("id", "carritoID");
+
   header.append(div2);
 
   div6 = document.createElement("div");
   div6.innerHTML = `
-  <div class="alerta_compra  ">
+  <div class="alerta_compra">
     <h1>Producto enviado al carrito</h1>
     <div class="cuerpo_lineaMenu"></div>
     <h3>${item.nombre}</h3>
@@ -39,9 +42,8 @@ function agregarAlCarrito(id) {
   </div>
 
   `
-  div3.classList = "espacio_alerta";
-  div3.append(div6);
-  cuerpo.prepend(div3);
+  div6.classList = "animacion-entrada"
+  espacio_alerta.append(div6);
   setTimeout(cerrar, 3000);
 
   totalPrecio = 0;
@@ -75,7 +77,7 @@ function eliminarDelCarrito(index) {
 function cerrar() {
 
   div6.classList = "ocultar";
-  div3.innerHTML = "";
+  espacio_alerta.innerHTML = "";
 
 }
 
@@ -105,14 +107,14 @@ function funcionSlider() {
   </div>
   `
     div8.prepend(div5);
-
+    div8.className="overflow"
   }
 
   if (carrito.length != 0) {
     div7.innerHTML = `
     <div class="cuerpo_lineaMenu"></div>
     <h1>Total: $${totalPrecio}</h1>
-    <button id="boton_compra" type="button" name="button">COMPRAR</button>
+    <button id="boton_compra" type="button" name="button" onclick="pagina2()">COMPRAR</button>
 `
   } else {
     div7.innerHTML = `
@@ -134,7 +136,7 @@ function funcionSlider() {
 function cerrarSlider() {
 
   if (carritoOn == 0) {
-    div4.className = "menu_slider";
+    div4.className = "entrada menu_slider";
     carritoOn = 1;
   } else if (carritoOn == 1) {
     div4.className = "ocultar";
@@ -292,7 +294,145 @@ function verificarMaximo() {
 }
 
 
+function pagina2(){
+    cuerpo__cuerpoFlex.className="ocultar"
+    div4.className = "ocultar";
+    div2.className="ocultar";
 
+    cuerpo__cuerpoFlex2.className="cuerpo__cuerpoFlex2"
+    cuerpo__cuerpoFlex2.innerHTML = `
+    <div class="cuerpo__cuerpoFlex--titulo">
+      <div class="cuerpo__cuerpoFlex--tituloLinea">
+      </div>
+      <h1>Finaliza tu compra</h1>
+      <div class="cuerpo__cuerpoFlex--tituloLinea">
+      </div>
+    </div>
+
+
+    <div class="cuerpo_cajasProductos2">
+      <div class="lista_compra" id="lista_compra">
+        <div id="lista" class="overflow">
+        </div>
+      <div class="cuerpo_lineaMenu"></div>
+      <h1>Total: $${totalPrecio}</h1>
+      </div>
+
+
+
+      <div class="formularioConTarjeta">
+        <h1>Datos personales</h1>
+
+        <form class="" id="datosPersonales" method="post">
+          <label for="">Nombre</label>
+          <input type="text" name="nombre" value="Juan Perez">
+
+          <label for="">email</label>
+          <input type="text" name="email" value="ejemplo@email.com">
+
+          <label for="">Telefono</label>
+          <input type="text" name="" value="381300000">
+
+          <label for="">Cantidad de cuotas</label>
+          <select  id="cuotas" name="selector">
+            <option value="1">1 Pago de $${totalPrecio}</option>
+            <option value="2">3 Pagos de $${(totalPrecio/3).toFixed(2)}</option>
+            <option value="3">6 Pagos de $${(totalPrecio/6).toFixed(2)}</option>
+            <option value="4">12 Pagos de $${(totalPrecio/12).toFixed(2)}</option>
+          </select>
+
+
+
+        <h1>Datos de la tarjeta de credito</h1>
+        <div class="tarjeta">
+
+
+            <div class="nombre_tarjeta">
+              <img src="media/chip.png" alt="">
+              <label for="">Nombre de la tarjeta:</label>
+              <input type="text" name="" value="Juan Perez"><br>
+              <label for="">Numero de la tarjeta:</label>
+              <input type="text" name="" value="123456789"><br>
+              <label for="">CVC</label>
+              <input type="text" name="" value="123">
+            </div>
+
+            <div class="expiracion_tarjeta">
+              <label for="">Desde:</label>
+              <input type="text" name="" value="12/02"><br>
+              <label for="">Hasta:</label>
+              <input type="text" name="" value="29/24">
+            </div>
+
+
+        </div>
+        <div class="cuerpo_lineaMenu"></div>
+        <button type="submit" name="button"  >CONFIRMAR COMPRA</button>
+        </form>
+      </div>
+
+      <!--    fin productos -->
+    </div>
+
+    `
+
+lista = document.getElementById("lista");
+
+    for (const produc of carrito) {
+      div5 = document.createElement("div");
+      div5.innerHTML = `
+
+    <div class="slider_componentes">
+      <div class="componentes_imagen">
+        <img src="media/${produc.imagen}" alt="">
+      </div>
+      <div class="componentes_nombres">
+        <h3>${produc.nombre}</h3>
+        <h4>$${produc.precio}</h4>
+      </div>
+
+    </div>
+    `
+      lista.prepend(div5);
+
+    }
+
+datosPersonales = document.getElementById("datosPersonales")
+datosPersonales.addEventListener("submit",animacion)
+}
+
+function animacion(e){
+  e.preventDefault();
+  cuerpo__cuerpoFlex2.innerHTML = `
+  <div class="agradecimientos">
+    <div class="giro">
+    </div>
+  </div>
+  `
+  setTimeout(pagina3,1000)
+}
+
+
+function pagina3(){
+
+    nombre= datosPersonales.nombre.value;
+    email = datosPersonales.email.value;
+    cuota = datosPersonales.cuotas.value;
+    let division = totalPrecio/cuota
+    division = division.toFixed(2)
+
+    cuerpo__cuerpoFlex2.className="ocultar"
+    cuerpo__cuerpoFlex3.className="cuerpo__cuerpoFlex3"
+    cuerpo__cuerpoFlex3.innerHTML=`
+
+    <div class="agradecimientos">
+      <h1>¡Gracias <strong>${nombre}</strong> por elegirnos!</h1>
+      <h2>¡El pago fue realizado con exito!</h2>
+      <h2>Corrobora las instrucciones en tu correo: <strong>${email}</strong></h2>
+      <h2>Pagaste $${totalPrecio} en ${cuota} cuotas de $${division}</h2>
+    </div>
+    `
+}
 
 
 //----------- inciio programa ---------------
@@ -303,6 +443,10 @@ let cuerpo = document.getElementById("cuerpo");
 let precioMinimo = document.getElementById("precioMinimo");
 let precioMaximo = document.getElementById("precioMaximo");
 let filtroPrecio = document.getElementById("filtroPrecio");
+let cuerpo__cuerpoFlex = document.getElementById("cuerpo__cuerpoFlex")
+let cuerpo__cuerpoFlex2 = document.getElementById("cuerpo__cuerpoFlex2")
+let cuerpo__cuerpoFlex3 = document.getElementById("cuerpo__cuerpoFlex3")
+let espacio_alerta = document.getElementById("espacio_alerta")
 alertaMinimo = document.createElement("h4");
 let MaximoYminimo = document.getElementById("MaximoYminimo");
 
@@ -311,7 +455,6 @@ precioMinimo.addEventListener("change", verificarMinimo)
 precioMaximo.addEventListener("change", verificarMaximo)
 
 div2 = document.createElement("div");
-div3 = document.createElement("div");
 div7 = document.createElement("div");
 div4 = document.createElement("div");
 div8 = document.createElement("div");
