@@ -51,9 +51,10 @@ header {
 }
 .fondo-numero p{
   color: white;
-  font-size: 26px;
+  font-size: 23px;
   font-weight: bold;
-  margin-left: 8px;
+  margin-top: 3px;
+  text-align: center;
 }
 
 .header__logo {
@@ -253,7 +254,6 @@ header {
 .espacio_alerta{
   display: flex;
   flex-direction: column;
-  flex-direction: column-reverse;
   width: 30%;
   z-index: 3;
   position: fixed;
@@ -277,7 +277,6 @@ header {
 }
 
 .alerta_compra h1{
-
   font-size: 18px;
   text-align: center;
 }
@@ -609,6 +608,25 @@ button:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; }
+
+/*-----menu izuierdo Buscardor-------*/
+.buscador {
+  width: 90%;
+  margin-bottom: 40px;
+
+}
+
+.buscador input{
+  border: 1px solid grey;
+  height: 20px;
+  border-radius: 5px;
+  font-size: 17px;
+  width: 90%;
+  padding: 4px;
+  outline: none;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
 
 /*-----menu izuierdo filtro-------*/
 .cuerpo_cajaMenu {

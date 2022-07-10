@@ -9,6 +9,8 @@ let vinosFiltradosPorPrecio2 = [];
 let bmini = 0,
   bmax = 0;
 let nombre,mail,cuota;
+let noti = 0;
+let timeOutID;
 
 //-----------   Funciones  -------------------
 
@@ -17,7 +19,7 @@ function agregarAlCarrito(id) {
 
   let item = vinos.find((prod) => prod.id === id)
   carrito.push(item);
-  console.log(carrito);
+  //console.log(carrito);
 
   div2.innerHTML = ` <a href="#" onclick="cerrarSlider()">
                     <img src="media/carrito.png" alt="">
@@ -44,8 +46,15 @@ function agregarAlCarrito(id) {
   `
   div6.classList = "animacion-entrada"
   espacio_alerta.append(div6);
-  setTimeout(cerrar, 3000);
 
+  if(noti==0){
+  timeOutID =setTimeout(cerrar, 3000);
+  noti = noti +1;
+}else(noti>0)
+{
+  clearTimeout(timeOutID);
+  timeOutID =setTimeout(cerrar, 3000);
+}
   totalPrecio = 0;
   div8.innerHTML = "";
   funcionSlider();
@@ -57,7 +66,7 @@ function agregarAlCarrito(id) {
 function eliminarDelCarrito(index) {
   if (index != -1) {
     carrito.splice(index, 1)
-    console.log(index)
+    //console.log(index)
   }
   totalPrecio = 0;
   div8.innerHTML = "";
@@ -78,7 +87,7 @@ function cerrar() {
 
   div6.classList = "ocultar";
   espacio_alerta.innerHTML = "";
-
+  noti =0;
 }
 
 

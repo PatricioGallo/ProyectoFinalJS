@@ -44,18 +44,18 @@
   <!--                 INICIO CUERPO                -->
   <div class="cuerpo" id="cuerpo">
 
-  <div class="espacio_alerta" id="espacio_alerta">
+    <div class="espacio_alerta" id="espacio_alerta">
 
-  </div>
+    </div>
 
     <!--                 INICIO CUERPO  FLEX              -->
 
     <div class="ocultar" id="cuerpo__cuerpoFlex2">
 
-      </div>
-      <div class="ocultar" id="cuerpo__cuerpoFlex3">
+    </div>
+    <div class="ocultar" id="cuerpo__cuerpoFlex3">
 
-        </div>
+    </div>
 
     <div class="cuerpo__cuerpoFlex" id="cuerpo__cuerpoFlex">
 
@@ -74,6 +74,15 @@
         <!--    inicio menu -->
         <div class="cuerpo_cajaMenu">
 
+          <!-- <h1>BUSCADOR</h1>
+          <div class="cuerpo_lineaMenu"></div>
+          <div class="buscador">
+            <form class="" action="index.html" method="post">
+              <input type="text" name="buscar" value="" placeholder="Buscar por nombre">
+              <button type="Submit" name="button">BUSCAR</button>
+            </form>
+          </div> -->
+
           <h1>FILTRA POR:</h1>
 
           <div class="cuerpo_lineaMenu"></div>
@@ -82,17 +91,18 @@
 
           <form action="/action_page.php" id="filtroPrecio">
             <input type="radio" id="precio1" name="filtro" value="1">
-            <label >Hasta $1000</label><br>
+            <label>Hasta $1000</label><br>
             <input type="radio" id="precio2" name="filtro" value="2">
-            <label >$1000 a $2000</label><br>
+            <label>$1000 a $2000</label><br>
             <input type="radio" id="precio3" name="filtro" value="3">
-            <label>Mas de  $2000 </label><br>
+            <label>Mas de $2000 </label><br>
             <div class="MaximoYminimo" id="MaximoYminimo">
-              <input type="text" name="minimo" placeholder="Minimo" id="precioMinimo"> <p>-</p>
+              <input type="text" name="minimo" placeholder="Minimo" id="precioMinimo">
+              <p>-</p>
               <input type="text" name="maximo" placeholder="Maximo" id="precioMaximo">
               <!-- <h4>Solo numeros</h4> -->
             </div>
-            <button type="submit" name="button">BUSCAR</button>
+            <button type="submit" name="button">FILTRAR</button>
           </form>
 
         </div>
@@ -101,162 +111,6 @@
         <!--    iinico productos -->
 
         <div class="cuerpo_cajaProductosDerecha" id="cuerpo_cajaProductos">
-
-          <!-- <div class="cuerpo__cajas">
-            <div class="cuerpo__cajasIndex--imagen">
-              <a href="#"> <img src="media/trapiche.jpg" alt=""> </a>
-            </div>
-            <div class="cuerpo__cajasIndex--texto">
-              <h1>Trapiche</h1>
-              <h2>Trapiche reserva</h2>
-              <h3>Malbec</h3>
-              <h4 class="cuerpo__cajas--precioTachado">$933,00</h4>
-              <h4 class="cuerpo__cajas--precio">$650,99</h4>
-               <button type="button" name="button" class="boton">COMPRAR</button>
-              <p>Compra minima 6 u.</p>
-            </div>
-          </div>
-
-
-          <div class="cuerpo__cajas">
-            <div class="cuerpo__cajasIndex--imagen">
-               <img src="media/don_david_malbec_1.jpg" alt="">
-            </div>
-            <div class="cuerpo__cajasIndex--texto">
-              <h1>El Esteco</h1>
-              <h2>Don David</h2>
-              <h3>Reserva</h3>
-              <h4 class="cuerpo__cajas--precioTachado">$1600,00</h4>
-              <h4 class="cuerpo__cajas--precio">$1490,99</h4>
-               <button type="button" name="button" class="boton">COMPRAR</button>
-              <p>Compra minima 6 u.</p>
-            </div>
-          </div>
-
-
-          <div class="cuerpo__cajas">
-            <div class="cuerpo__cajasIndex--imagen">
-               <img src="media/los_intocables_blend.jpg" alt="">
-            </div>
-            <div class="cuerpo__cajasIndex--texto">
-              <h1>Finca Las Moras</h1>
-              <h2>Los intocables</h2>
-              <h3>Red Blend</h3>
-              <h4 class="cuerpo__cajas--precioTachado">$1136,00</h4>
-              <h4 class="cuerpo__cajas--precio">$899,99</h4>
-              <button type="button" name="button" class="boton">COMPRAR</button>
-              <p>Compra minima 6 u.</p>
-            </div>
-          </div>
-
-
-          <div class="cuerpo__cajas">
-            <div class="cuerpo__cajasIndex--imagen">
-              <img src="media/fonddacave.jpg" alt="">
-            </div>
-            <div class="cuerpo__cajasIndex--texto">
-              <h1>Trapiche</h1>
-              <h2>Fond da cave</h2>
-              <h3>Cabernet</h3>
-              <h4 class="cuerpo__cajas--precioTachado">$1136,00</h4>
-              <h4 class="cuerpo__cajas--precio">$899,99</h4>
-               <button type="button" name="button" class="boton">COMPRAR</button>
-              <p>Compra minima 6 u.</p>
-            </div>
-          </div>
-
-
-
-          <div class="cuerpo__cajas">
-            <div class="cuerpo__cajasIndex--imagen">
-               <img src="media/mascota.jpg" alt="">
-            </div>
-            <div class="cuerpo__cajasIndex--texto">
-              <h1>Mascota Vineyards</h1>
-              <h2>Las Mascotas</h2>
-              <h3>Malbec</h3>
-              <h4 class="cuerpo__cajas--precioTachado">$1136,00</h4>
-              <h4 class="cuerpo__cajas--precio">$899,99</h4>
-               <button type="button" name="button" class="boton">COMPRAR</button>
-              <p>Compra minima 6 u.</p>
-            </div>
-          </div>
-
-
-          <div class="cuerpo__cajas">
-            <div class="cuerpo__cajasIndex--imagen">
-               <img src="media/medalla.jpg" alt="">
-            </div>
-            <div class="cuerpo__cajasIndex--texto">
-              <h1>Trapiche</h1>
-              <h2>Medalla</h2>
-              <h3>Malbec</h3>
-              <h4 class="cuerpo__cajas--precioTachado">$1136,00</h4>
-              <h4 class="cuerpo__cajas--precio">$899,99</h4>
-               <button type="button" name="button" class="boton">COMPRAR</button>
-              <p>Compra minima 6 u.</p>
-            </div>
-          </div>
-
-          <div class="cuerpo__cajas">
-            <div class="cuerpo__cajasIndex--imagen">
-               <img src="media/elesteco.png" alt="">
-            </div>
-            <div class="cuerpo__cajasIndex--texto">
-              <h1>El esteco</h1>
-              <h2>Blend de estremos</h2>
-              <h3>Blend</h3>
-              <h4 class="cuerpo__cajas--precioTachado">$1136,00</h4>
-              <h4 class="cuerpo__cajas--precio">$899,99</h4>
-               <button type="button" name="button" class="boton">COMPRAR</button>
-              <p>Compra minima 6 u.</p>
-            </div>
-          </div>
-
-          <div class="cuerpo__cajas">
-            <div class="cuerpo__cajasIndex--imagen">
-              <a href="#"> <img src="media/caja.jpg" alt=""> </a>
-            </div>
-            <div class="cuerpo__cajasIndex--texto">
-              <h1>Malbec</h1>
-              <h2>Caja de degustacion</h2>
-              <h3>Malbec</h3>
-              <h4 class="cuerpo__cajas--precioTachado">$1136,00</h4>
-              <h4 class="cuerpo__cajas--precio">$899,99</h4>
-               <button type="button" name="button" class="boton">COMPRAR</button>
-              <p>Compra minima 6 u.</p>
-            </div>
-          </div>
-
-          <div class="cuerpo__cajas">
-            <div class="cuerpo__cajasIndex--imagen">
-               <img src="media/granmedalla.jpg" alt="">
-            </div>
-            <div class="cuerpo__cajasIndex--texto">
-              <h1>Trapiche</h1>
-              <h2>Gran medalla</h2>
-              <h3>Cabernet Franc</h3>
-              <h4 class="cuerpo__cajas--precioTachado">$1136,00</h4>
-              <h4 class="cuerpo__cajas--precio">$899,99</h4>
-               <button type="button" name="button" class="boton">COMPRAR</button>
-              <p>Compra minima 6 u.</p>
-            </div>
-          </div>
-
-          <div class="cuerpo__cajas">
-            <div class="cuerpo__cajasIndex--imagen">
-               <img src="media/navarrocorreas.jpg" alt="">
-            </div>
-            <div class="cuerpo__cajasIndex--texto">
-              <h1>Navarro Correas</h1>
-              <h2>Sparking</h2>
-              <h3>Dulces</h3>
-              <h4 class="cuerpo__cajas--precioTachado">$1136,00</h4>
-              <h4 class="cuerpo__cajas--precio">$899,99</h4>
-               <button type="button" name="button" class="boton">COMPRAR</button>
-              <p>Compra minima 6 u.</p>
-            </div>
-          </div> -->
 
         </div>
         <!--    fin productos -->
