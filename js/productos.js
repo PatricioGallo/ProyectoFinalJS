@@ -51,5 +51,41 @@ const vinos = [{
     precioTachado: 1600,
     precio: 2300,
     imagen: "medalla.jpg"
+  },
+  {
+    id: 7,
+    bodega: "El esteco",
+    nombre: "Blend de estremos",
+    tipo: "Blend",
+    precioTachado: 2100,
+    precio: 1700,
+    imagen: "elesteco.png"
+  },
+  {
+    id: 8,
+    bodega: "Malbec",
+    nombre: "Caja de degustacion",
+    tipo: "Malbec",
+    precioTachado: 4100,
+    precio: 3200,
+    imagen: "caja.jpg"
+  },
+  {
+    id: 9,
+    bodega: "Trapiche",
+    nombre: "Gran medalla",
+    tipo: "Cabernet Franc",
+    precioTachado: 1700,
+    precio: 1400,
+    imagen: "granmedalla.jpg"
+  },
+  {
+    id: 10,
+    bodega: "Navarro Correas",
+    nombre: "Sparking",
+    tipo: "Dulces",
+    precioTachado: 1900,
+    precio: 1600,
+    imagen: "navarrocorreas.jpg"
   }
 ]
