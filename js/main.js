@@ -214,6 +214,26 @@ function funcionFiltroPrecio(e) {
 
 
 
+function funcionBuscar(e){
+e.preventDefault();
+
+if (buscador.buscar.value) {
+
+    const vinosFiltradosPorBuscador = vinos.filter((el) => el.nombre.toLowerCase().includes(buscador.buscar.value.toLowerCase()) || el.bodega.toLowerCase().includes(buscador.buscar.value.toLowerCase()) || el.tipo.toLowerCase().includes(buscador.buscar.value.toLowerCase()))
+    console.log(buscador.buscar.value);
+    console.log(vinosFiltradosPorBuscador);
+    vinosFiltradosPorBuscadr2 = vinosFiltradosPorBuscador;
+    cuerpo_cajaProductos.innerHTML = "";
+    alertaBuscador.innerHTML = ""
+    filtrosVino = 2;
+    mostrarIndex();
+  }else{
+    alertaBuscador.innerHTML="<h4>Por Favor ingrese un valor</h4>"
+  }
+
+}
+
+
 
 function mostrarIndex() {
 
@@ -271,6 +291,30 @@ function mostrarIndex() {
     }
 
   } else if (filtrosVino == 2) {
+    for (const vino2 of vinosFiltradosPorBuscadr2) {
+      div = document.createElement("div");
+      div.innerHTML = `
+
+                      <div class="cuerpo__cajasIndex--imagen">
+
+                        <a href="#"> <img src="media/${vino2.imagen}" alt=""> </a>
+                      </div>
+                      <div class="cuerpo__cajasIndex--texto">
+
+                              <h1>${vino2.bodega}</h1>
+                              <h2>${vino2.nombre}</h2>
+                              <h3>${vino2.tipo}</h3>
+                              <h4 class="cuerpo__cajas--precioTachado">$${vino2.precioTachado}</h4>
+                              <h4 class="cuerpo__cajas--precio">$${vino2.precio}</h4>
+                              <button onclick="agregarAlCarrito(${vino2.id})" type="button" name="button" class="boton">COMPRAR</button>
+                              <p>Compra minima 6 u.</p>
+
+                      </div>
+                    `
+
+      div.classList = "cuerpo__cajas"
+      cuerpo_cajaProductos.append(div);
+    }
 
   } else if (filtrosVino == 3) {
 
@@ -452,6 +496,8 @@ let cuerpo = document.getElementById("cuerpo");
 let precioMinimo = document.getElementById("precioMinimo");
 let precioMaximo = document.getElementById("precioMaximo");
 let filtroPrecio = document.getElementById("filtroPrecio");
+let buscador = document.getElementById("buscador");
+let alertaBuscador = document.getElementById("alertaBuscador");
 let cuerpo__cuerpoFlex = document.getElementById("cuerpo__cuerpoFlex")
 let cuerpo__cuerpoFlex2 = document.getElementById("cuerpo__cuerpoFlex2")
 let cuerpo__cuerpoFlex3 = document.getElementById("cuerpo__cuerpoFlex3")
@@ -460,6 +506,7 @@ alertaMinimo = document.createElement("h4");
 let MaximoYminimo = document.getElementById("MaximoYminimo");
 
 filtroPrecio.addEventListener("submit", funcionFiltroPrecio);
+buscador.addEventListener("submit", funcionBuscar);
 precioMinimo.addEventListener("change", verificarMinimo)
 precioMaximo.addEventListener("change", verificarMaximo)
 
