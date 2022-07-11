@@ -20,6 +20,12 @@ function agregarAlCarrito(id) {
   let item = vinos.find((prod) => prod.id === id)
   carrito.push(item);
   //console.log(carrito);
+  let carritoJSON = JSON.stringify(carrito); //convierto a carrito en formato json
+  localStorage.setItem("carritoJSON",carritoJSON); //agrego el carrito en formato Json al local storage
+  let carroJSON = localStorage.getItem("carritoJSON");
+  let carro = JSON.parse(carroJSON)
+  console.log(carro);
+
 
   div2.innerHTML = ` <a href="#" onclick="cerrarSlider()">
                     <img src="media/carrito.png" alt="">
@@ -265,6 +271,8 @@ function mostrarIndex() {
 
   } else if (filtrosVino == 1) {
 
+    if(vinosFiltradosPorPrecio2.length >0){
+
     for (const vino2 of vinosFiltradosPorPrecio2) {
       div = document.createElement("div");
       div.innerHTML = `
@@ -288,9 +296,20 @@ function mostrarIndex() {
 
       div.classList = "cuerpo__cajas"
       cuerpo_cajaProductos.append(div);
+    }}else{
+      cuerpo_cajaProductos.innerHTML=`
+
+      <div class="noSeEncontro">
+        <h3>¡Disculpe! No se encontro nada con los datos solicitados</h3>
+      </div>
+
+
+      `
     }
 
   } else if (filtrosVino == 2) {
+
+    if(vinosFiltradosPorBuscadr2.length>0){
     for (const vino2 of vinosFiltradosPorBuscadr2) {
       div = document.createElement("div");
       div.innerHTML = `
@@ -314,6 +333,16 @@ function mostrarIndex() {
 
       div.classList = "cuerpo__cajas"
       cuerpo_cajaProductos.append(div);
+    }}else{
+
+      cuerpo_cajaProductos.innerHTML=`
+
+      <div class="noSeEncontro">
+        <h3>¡Disculpe! No se encontro nada con los datos solicitados</h3>
+      </div>
+
+
+      `
     }
 
   } else if (filtrosVino == 3) {

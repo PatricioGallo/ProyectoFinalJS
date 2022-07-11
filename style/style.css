@@ -731,6 +731,17 @@ button:hover {
   flex-wrap: wrap;
   justify-content:space-between; }
 
+  .noSeEncontro{
+    width: 100%;
+    border-radius: 20px;
+  }
+
+  .noSeEncontro h3{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 60px;
+  }
+
 .cuerpo_siguientePagina {
   text-align: right;
   margin-top: 20px;
@@ -954,10 +965,10 @@ footer {
   flex-direction: column;
   flex-wrap: wrap;
   margin-left: 0%;
-  margin-top: 10px;
-  border: grey solid 1px;
+  margin-top: 0px;
+  border: grey solid 0px;
   border-radius: 0px;
-  padding: 20px;
+  padding: 0px;
   background-color: white;
   box-shadow: 10px 10px 40px grey;
 }
@@ -986,6 +997,7 @@ footer {
     width: 100%;
     display: flex;
     flex-direction: column;
+    margin-left: 5%;
   }
 
   .lista_compra h1{
@@ -999,12 +1011,12 @@ footer {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
-    margin-left: 0%;
+    margin-left: 5%;
   }
 
   .giro {
 
-    margin-left: 30%;
+    margin-left: 35%;
   }
 
 /* ----- fib de pagina de compra ------- */
