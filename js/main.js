@@ -1,6 +1,6 @@
 //---------- Variables ------------
 let carritoOn = 0;
-const carrito = [];
+let carrito;
 const alerta = 0;
 let totalPrecio = 0;
 let contadorDeId = 0;
@@ -8,9 +8,12 @@ let filtrosVino = 0;
 let vinosFiltradosPorPrecio2 = [];
 let bmini = 0,
   bmax = 0;
-let nombre,mail,cuota;
+let nombre, mail, cuota;
 let noti = 0;
 let timeOutID;
+const carritoEnLs = JSON.parse(localStorage.getItem("carritoJSON"))
+
+
 
 //-----------   Funciones  -------------------
 
@@ -20,11 +23,9 @@ function agregarAlCarrito(id) {
   let item = vinos.find((prod) => prod.id === id)
   carrito.push(item);
   //console.log(carrito);
-  let carritoJSON = JSON.stringify(carrito); //convierto a carrito en formato json
-  localStorage.setItem("carritoJSON",carritoJSON); //agrego el carrito en formato Json al local storage
-  let carroJSON = localStorage.getItem("carritoJSON");
-  let carro = JSON.parse(carroJSON)
-  console.log(carro);
+
+  localStorage.setItem("carritoJSON", JSON.stringify(carrito)); //agrego el carrito en formato Json al local storage
+
 
 
   div2.innerHTML = ` <a href="#" onclick="cerrarSlider()">
@@ -53,14 +54,13 @@ function agregarAlCarrito(id) {
   div6.classList = "animacion-entrada"
   espacio_alerta.append(div6);
 
-  if(noti==0){
-  timeOutID =setTimeout(cerrar, 3000);
-  noti = noti +1;
-}else(noti>0)
-{
-  clearTimeout(timeOutID);
-  timeOutID =setTimeout(cerrar, 3000);
-}
+  if (noti == 0) {
+    timeOutID = setTimeout(cerrar, 3000);
+    noti = noti + 1;
+  }else if(noti > 0){
+    clearTimeout(timeOutID);
+    timeOutID = setTimeout(cerrar, 3000);
+  }
   totalPrecio = 0;
   div8.innerHTML = "";
   funcionSlider();
@@ -73,6 +73,8 @@ function eliminarDelCarrito(index) {
   if (index != -1) {
     carrito.splice(index, 1)
     //console.log(index)
+    localStorage.setItem("carritoJSON", JSON.stringify(carrito)); //agrego el carrito en formato Json al local storage
+
   }
   totalPrecio = 0;
   div8.innerHTML = "";
@@ -93,7 +95,7 @@ function cerrar() {
 
   div6.classList = "ocultar";
   espacio_alerta.innerHTML = "";
-  noti =0;
+  noti = 0;
 }
 
 
@@ -122,7 +124,7 @@ function funcionSlider() {
   </div>
   `
     div8.prepend(div5);
-    div8.className="overflow"
+    div8.className = "overflow"
   }
 
   if (carrito.length != 0) {
@@ -195,15 +197,15 @@ function funcionFiltroPrecio(e) {
       alertaMinimo.innerHTML = ""
       filtrosVino = 1;
       mostrarIndex();
-    }else if(filtroPrecio.maximo.value){
+    } else if (filtroPrecio.maximo.value) {
       const vinosFiltradosPorPrecio = vinos.filter((el) => el.precio < filtroPrecio.maximo.value)
       vinosFiltradosPorPrecio2 = vinosFiltradosPorPrecio;
       cuerpo_cajaProductos.innerHTML = "";
       alertaMinimo.innerHTML = ""
       filtrosVino = 1;
       mostrarIndex();
-    }else if(filtroPrecio.minimo.value && filtroPrecio.maximo.value){
-      const vinosFiltradosPorPrecio = vinos.filter((el) =>  el.precio > filtroPrecio.minimo.value && el.precio < filtroPrecio.maximo.value)
+    } else if (filtroPrecio.minimo.value && filtroPrecio.maximo.value) {
+      const vinosFiltradosPorPrecio = vinos.filter((el) => el.precio > filtroPrecio.minimo.value && el.precio < filtroPrecio.maximo.value)
       vinosFiltradosPorPrecio2 = vinosFiltradosPorPrecio;
       cuerpo_cajaProductos.innerHTML = "";
       alertaMinimo.innerHTML = ""
@@ -220,10 +222,10 @@ function funcionFiltroPrecio(e) {
 
 
 
-function funcionBuscar(e){
-e.preventDefault();
+function funcionBuscar(e) {
+  e.preventDefault();
 
-if (buscador.buscar.value) {
+  if (buscador.buscar.value) {
 
     const vinosFiltradosPorBuscador = vinos.filter((el) => el.nombre.toLowerCase().includes(buscador.buscar.value.toLowerCase()) || el.bodega.toLowerCase().includes(buscador.buscar.value.toLowerCase()) || el.tipo.toLowerCase().includes(buscador.buscar.value.toLowerCase()))
     console.log(buscador.buscar.value);
@@ -233,8 +235,8 @@ if (buscador.buscar.value) {
     alertaBuscador.innerHTML = ""
     filtrosVino = 2;
     mostrarIndex();
-  }else{
-    alertaBuscador.innerHTML="<h4>Por Favor ingrese un valor</h4>"
+  } else {
+    alertaBuscador.innerHTML = "<h4>Por Favor ingrese un valor</h4>"
   }
 
 }
@@ -271,11 +273,11 @@ function mostrarIndex() {
 
   } else if (filtrosVino == 1) {
 
-    if(vinosFiltradosPorPrecio2.length >0){
+    if (vinosFiltradosPorPrecio2.length > 0) {
 
-    for (const vino2 of vinosFiltradosPorPrecio2) {
-      div = document.createElement("div");
-      div.innerHTML = `
+      for (const vino2 of vinosFiltradosPorPrecio2) {
+        div = document.createElement("div");
+        div.innerHTML = `
 
                       <div class="cuerpo__cajasIndex--imagen">
 
@@ -294,10 +296,11 @@ function mostrarIndex() {
                       </div>
                     `
 
-      div.classList = "cuerpo__cajas"
-      cuerpo_cajaProductos.append(div);
-    }}else{
-      cuerpo_cajaProductos.innerHTML=`
+        div.classList = "cuerpo__cajas"
+        cuerpo_cajaProductos.append(div);
+      }
+    } else {
+      cuerpo_cajaProductos.innerHTML = `
 
       <div class="noSeEncontro">
         <h3>¡Disculpe! No se encontro nada con los datos solicitados</h3>
@@ -309,10 +312,10 @@ function mostrarIndex() {
 
   } else if (filtrosVino == 2) {
 
-    if(vinosFiltradosPorBuscadr2.length>0){
-    for (const vino2 of vinosFiltradosPorBuscadr2) {
-      div = document.createElement("div");
-      div.innerHTML = `
+    if (vinosFiltradosPorBuscadr2.length > 0) {
+      for (const vino2 of vinosFiltradosPorBuscadr2) {
+        div = document.createElement("div");
+        div.innerHTML = `
 
                       <div class="cuerpo__cajasIndex--imagen">
 
@@ -331,11 +334,12 @@ function mostrarIndex() {
                       </div>
                     `
 
-      div.classList = "cuerpo__cajas"
-      cuerpo_cajaProductos.append(div);
-    }}else{
+        div.classList = "cuerpo__cajas"
+        cuerpo_cajaProductos.append(div);
+      }
+    } else {
 
-      cuerpo_cajaProductos.innerHTML=`
+      cuerpo_cajaProductos.innerHTML = `
 
       <div class="noSeEncontro">
         <h3>¡Disculpe! No se encontro nada con los datos solicitados</h3>
@@ -376,13 +380,13 @@ function verificarMaximo() {
 }
 
 
-function pagina2(){
-    cuerpo__cuerpoFlex.className="ocultar"
-    div4.className = "ocultar";
-    div2.className="ocultar";
+function pagina2() {
+  cuerpo__cuerpoFlex.className = "ocultar"
+  div4.className = "ocultar";
+  div2.className = "ocultar";
 
-    cuerpo__cuerpoFlex2.className="cuerpo__cuerpoFlex2"
-    cuerpo__cuerpoFlex2.innerHTML = `
+  cuerpo__cuerpoFlex2.className = "cuerpo__cuerpoFlex2"
+  cuerpo__cuerpoFlex2.innerHTML = `
     <div class="cuerpo__cuerpoFlex--titulo">
       <div class="cuerpo__cuerpoFlex--tituloLinea">
       </div>
@@ -458,11 +462,11 @@ function pagina2(){
 
     `
 
-lista = document.getElementById("lista");
+  lista = document.getElementById("lista");
 
-    for (const produc of carrito) {
-      div5 = document.createElement("div");
-      div5.innerHTML = `
+  for (const produc of carrito) {
+    div5 = document.createElement("div");
+    div5.innerHTML = `
 
     <div class="slider_componentes">
       <div class="componentes_imagen">
@@ -475,15 +479,15 @@ lista = document.getElementById("lista");
 
     </div>
     `
-      lista.prepend(div5);
+    lista.prepend(div5);
 
-    }
+  }
 
-datosPersonales = document.getElementById("datosPersonales")
-datosPersonales.addEventListener("submit",animacion)
+  datosPersonales = document.getElementById("datosPersonales")
+  datosPersonales.addEventListener("submit", animacion)
 }
 
-function animacion(e){
+function animacion(e) {
   e.preventDefault();
   cuerpo__cuerpoFlex2.innerHTML = `
   <div class="agradecimientos">
@@ -491,21 +495,21 @@ function animacion(e){
     </div>
   </div>
   `
-  setTimeout(pagina3,1000)
+  setTimeout(pagina3, 1000)
 }
 
 
-function pagina3(){
+function pagina3() {
 
-    nombre= datosPersonales.nombre.value;
-    email = datosPersonales.email.value;
-    cuota = datosPersonales.cuotas.value;
-    let division = totalPrecio/cuota
-    division = division.toFixed(2)
+  nombre = datosPersonales.nombre.value;
+  email = datosPersonales.email.value;
+  cuota = datosPersonales.cuotas.value;
+  let division = totalPrecio / cuota
+  division = division.toFixed(2)
 
-    cuerpo__cuerpoFlex2.className="ocultar"
-    cuerpo__cuerpoFlex3.className="cuerpo__cuerpoFlex3"
-    cuerpo__cuerpoFlex3.innerHTML=`
+  cuerpo__cuerpoFlex2.className = "ocultar"
+  cuerpo__cuerpoFlex3.className = "cuerpo__cuerpoFlex3"
+  cuerpo__cuerpoFlex3.innerHTML = `
 
     <div class="agradecimientos">
       <h1>¡Gracias <strong>${nombre}</strong> por elegirnos!</h1>
@@ -514,8 +518,31 @@ function pagina3(){
       <h2>Pagaste $${totalPrecio} en ${cuota} cuotas de $${division}</h2>
     </div>
     `
+    localStorage.clear();
 }
 
+
+function carritoEnJASON(){
+  if (carritoEnLs) {
+    carrito = carritoEnLs
+
+    div2.innerHTML = ` <a href="#" onclick="cerrarSlider()">
+                      <img src="media/carrito.png" alt="">
+                      <div class="fondo-numero">
+                        <p>${carrito.length}</p>
+                      </div>
+                      </a>
+    `
+    div2.classList = "header_carrito";
+    div2.setAttribute("id", "carritoID");
+
+    header.append(div2);
+    funcionSlider();
+
+  } else {
+    carrito = []
+  }
+}
 
 //----------- inciio programa ---------------
 
@@ -545,5 +572,6 @@ div4 = document.createElement("div");
 div8 = document.createElement("div");
 div9 = document.createElement("div");
 div4.className = "ocultar";
+carritoEnJASON();
 cuerpo.prepend(div4);
 mostrarIndex();
