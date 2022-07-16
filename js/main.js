@@ -422,9 +422,9 @@ function pagina2() {
           <label for="">Cantidad de cuotas</label>
           <select  id="cuotas" name="selector">
             <option value="1">1 Pago de $${totalPrecio}</option>
-            <option value="2">3 Pagos de $${(totalPrecio/3).toFixed(2)}</option>
-            <option value="3">6 Pagos de $${(totalPrecio/6).toFixed(2)}</option>
-            <option value="4">12 Pagos de $${(totalPrecio/12).toFixed(2)}</option>
+            <option value="3">3 Pagos de $${(totalPrecio/3).toFixed(2)}</option>
+            <option value="6">6 Pagos de $${(totalPrecio/6).toFixed(2)}</option>
+            <option value="12">12 Pagos de $${(totalPrecio/12).toFixed(2)}</option>
           </select>
 
 
